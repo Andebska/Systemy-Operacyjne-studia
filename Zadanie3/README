@@ -1,0 +1,54 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 11.04.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie3 zawiera trzy przykladowe programy w jezyku C:
+-----------------------------------------------------------------
+
+I. Program do obslugi sygnalow z mozliwosciami: (1) wykonania operacji 
+domyslnej, (2)  ignorowania, (3) przechwycenia i wlasnej obslugi sygnalu.
+Program jest uruchamiany przy pomocy sekwencji klawiszy oraz polecenia 
+kill z poziomu powloki.
+Program sklada sie z jednego modulu:
+1) zadanie_a.c - program glowny
+
+II. Program do obslugi sygnalow z mozliwosciami: (1) wykonania operacji 
+domyslnej, (2)     ignorowania, (3) przechwycenia i wlasnej obslugi sygnalu. 
+Program jest uruchamiany przez funkcje execlp w procesie potomnym innego 
+procesu. Sygnaly do niego sa wysylane przez funkcje kill z procesu 
+macierzystego. Proces macierzysty czeka na swojego potomka a nastepnie
+wypisuje jego PID i status zakonczenia.
+Program sklada sie z dwoch modulow:
+1) zadanie_b.c - program glowny
+2) zadanie_2_a.c - program wywolywany przez execlp
+
+III. Program tworzacy proces potomny w procesie macierzystym i zmieniajacy 
+go na lidera grupy. Nastepnie przez funkcje execlp uruchamiany jest w nim program
+tworzacy kilka procesow potomnych, ktore poprzez funkcje execlp wykonuja 
+program I. Proces bedacy liderem grupy ignoruje sygnaly i czeka na swoich 
+potomkow a nastepnie wypisuje ich identyfikatory PID oraz status zakonczenia.
+Program sklada sie z trzech modulow:
+1) zadanie_c.c - program glowny
+2) zadanie_c_p.c - program wywolywany przez execlp
+3) zadanie_a.c - program wywolywany przez execlp
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic 1 program, nalezy wykonac komendy:
+	make all; ./zadanie_a [twoj_wybor:1/2/3] [numer_sygnalu_do_wyslania]
+->Aby uruchomic 2 program, nalezy wykonac komendy:
+	make all; ./zadanie_b [twoj_wybor:1/2/3] [numer_sygnalu_do_wyslania]
+->Aby uruchomic 3 program, nalezy wykonac komendy:
+	make all; ./zadanie_c [twoj_wybor:1/2/3] [numer_sygnalu_do_wyslania]
+
+->Aby wyszyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar
+---------------------------------------------------------------------------
+
+

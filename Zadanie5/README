@@ -1,0 +1,37 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 17.03.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie4 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program ukazujacy problem "Producenta i konsumenta" przy pomocy potokow 
+nazwanych tworzonych z poziomu programu. Producent pobiera porcje bajtow z pliku 
+tekstowego i wstawia go do potoku. Konsument umieszcza pobrany z potoku "towar" 
+w innym pliku tekstowym.
+1) zadanie_a.c - program glowny
+   prod.txt, kons.txt - pliki tekstowe producenta i konsumenta
+
+II. Program ukazujacy problem "Producenta i konsumenta" przy pomocy potokow 
+nazwanych tworzonych z linii komend. Potoki dzialaja dla niezaleznych procesow.
+
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic programy, nalezy wykonac komende:
+	make all
+ oraz:
+ 1) make a
+ 2) make b_cons, make b_prod
+
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar
+---------------------------------------------------------------------------
+
+

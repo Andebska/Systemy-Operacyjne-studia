@@ -1,0 +1,32 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 17.03.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie4 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program ukazujacy problem "Producenta i konsumenta" przy pomocy potoków 
+nienazwanych. Producent pobiera porcje bajtow z pliku tekstowego i wstawia
+go do potoku. Konsument umieszcza pobrany z potoku "towar" w innym pliku
+tekstowym.
+1) zadanie4.c - program glowny
+
+
+
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic program, nalezy wykonac komendy:
+	make all
+
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar
+---------------------------------------------------------------------------
+
+
