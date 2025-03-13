@@ -1,0 +1,26 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 27.05.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie9 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program implementujacy problem wzajemnego wykluczania dla watkow.
+  W zaleznosci od wykonywania sekcji prywatnej/publicznej komunikaty
+  sa wyswietlane w odpowiednim miejscu okna konsoli. 
+  watki.c - program glowny
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic programy, nalezy wykonac komende:
+	make all
+	oraz
+	make run
+
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar

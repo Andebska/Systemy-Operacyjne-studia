@@ -1,0 +1,33 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 20.05.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie8 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program implementujacy problem klient-serwer przy pomocy kolejki komunikatow.
+ Proces klienta wysyla do kolejki procesu serwera zadanie wykonania dzialania 
+ arytmetycznego. Serwer wykonuje dzialanie i odsyla wynik do kolejki klienta.
+1) serwer.c - program serwer - obliczajacy dzialania
+   klient.c - program klient wysylajacy dzialania do serwera
+   mq_library.h - naglowki biblioteki mq_library.c
+   mq_library.c - biblioteka podstawowych funkcji kolejki komunikatow
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic programy, nalezy wykonac komende:
+	make all
+	oraz: 
+	make run 
+  
+	-do zatrzymania procesu klienta uzyc [CTRL D]  
+	-do zatrzymania procesu serwera uzyc [CTRL C]
+ 
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar

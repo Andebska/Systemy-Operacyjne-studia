@@ -1,0 +1,27 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 31.05.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie10 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program implementujacy problem algorytmu piekarni. W zaleznosci od 
+  wykonywania sekcji prywatnej/publicznej komunikaty sa wyswietlane 
+  w odpowiednim miejscu okna konsoli.
+1) zadanie10.c - program glowny
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic programy, nalezy wykonac komende:
+	make all
+	oraz
+	make run
+  
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar

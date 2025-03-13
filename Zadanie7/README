@@ -1,0 +1,79 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 12.05.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie7 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program implementujacy problem "producenta-konsumenta" uzywajacy
+ N-elementowego bufora cyklicznego umieszczonego w pamieci dzielonej.
+ Dostep do wspolnego bufora jest synchronizowany przy uzyciu semaforow
+ nazwanych
+1) macierzysty.c - program glowny
+   producent.c - program producent wywolywany przez execlp z programu macierzysty.c
+   konsument.c - program konsument wywolywany przez execlp z programu macierzysty.c
+   sharedLibrary.h - naglowki biblioteki sem_lib.c
+   sharedLibraryb.c - biblioteka podstawowych funkcji pamieci dzielonej i semaforow
+   buffer.h - plik zawierajacy strukture segmentu pamieci dzielonej
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic programy, nalezy wykonac komende:
+	make all
+ 
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar
+---------------------------------------------------------------------------
+
+#define N ? // Rozmiar bufora
+typdef struct { ... } Towar; // Definicja typu dla jednostek towaru
+Towar bufor[N]; // Bufor mogacy pomiescic N jednostek towaru
+int wstaw = 0, wyjmij = 0; // Pozycje wstawiania oraz wyjmowania towaru z bufora
+
+semaphore dostepProducentow = 1;  // Semafor do synchronizacji dostêpu producentów do sekcji krytycznej (bufora)
+                                  //Kontroluja zeby tylko jeden producent/konsument mial dostep 
+                                  //do bufora w danym momencie
+semaphore dostepKonsumentow = 1;  // Semafor do synchronizacji dostêpu konsumentów do sekcji krytycznej (bufora)
+
+semaphore miejsceWolne = N;   // Semafor do synchronizacji iloœci wolnego miejsca w buforze
+
+semaphore miejsceZajete = 0;  // Semafor do synchronizacji iloœci zajêtego miejsa w buforze
+
+// Proces Producent
+// ----------------
+Towar towarProd;
+while (1) {
+    // Produkcja towaru
+
+    P(miejsceWolne); // Opusc semafor wolnego miejsca w buforze
+    P(dostepProducentow); // Opusc semafor producentow
+    bufor[wstaw] = towarProd; // Umiesc towar w buforze
+    wstaw = (wstaw + 1) % N; // Przesun pozycje wstawiania o 1 dalej
+
+    V(dostepProducentow); // Podnies semafor producentow
+    V(miejsceZajete); // Podnies semafor zajetego miejsca w buforze
+}
+
+// Proces Konsument
+// ----------------
+Towar towarKons;
+while (1) {
+    P(miejsceZajete); // Opusc semafor zajetego miejsca w buforze
+    P(dostepKonsumentow); // Opusc semafor konsumentow
+
+    towarKons = bufor[wyjmij]; // Pobierz towar z bufora
+    wyjmij = (wyjmij + 1) % N; // Przesun pozycje wyjmowania o 1 dalej
+
+    V(dostepKonsumentow); // Podnies semafor konsumentow 
+    V(miejsceWolne); // Podnies semafor wolnego miejsca w buforze
+
+    // Konsumpcja towaru
+}
+
+

@@ -1,0 +1,36 @@
+========================================================================
+Autor: Anna Debska,                                   Krakow, 05.05.2024
+========================================================================
+
+*Zawartosc:
+===========
+
+Katalog Zadanie4 zawiera jeden program w jezyku C:
+-----------------------------------------------------------------
+
+I. Program implementujacy problem wzajemnego wykluczania dla procesow przy
+  uzyciu wlasnej biblioteki funkcji semaforow. W celu weryfikacji poprawnosci
+  jest tworzony plik tekstowy, do ktorego wypisywane sa wartosci.
+1) powielacz.c - program glowny
+   potomny.c - program wywolywany przez execlp z programu powielacz.c
+   sem_lib.h - naglwoki biblioteki sem_lib.c
+   sem_lib.c - biblioteka podstawowych funkcji semaforow
+   test.c - program testujacy uruchomienie bez uzycia sekcji krytycznej
+
+---------------------------------------------------------------------------
+Jak uruchomic programy?
+->Aby uruchomic programy, nalezy wykonac komende:
+	make all
+ oraz:
+	./powielacz ./potomny <liczba procesow> <liczba sekcji krytycznych>
+	
+	./powielacz ./test <liczba_procesow>
+
+->Aby wyczyscic zawartosc katalogu nalezy wykonac komende:
+	make clean
+
+->W celu archiwizacji oraz kompresji katalogu nalezy wykonac komende:
+	make tar
+---------------------------------------------------------------------------
+
+
